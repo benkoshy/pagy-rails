@@ -30,7 +30,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'ffaker'
 
-gem 'pagy'
+gem 'pagy', git: 'https://github.com/ddnexus/pagy.git', branch: 'e2e'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
