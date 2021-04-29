@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+1.upto(1000).each do |i|
+  Movie.create(name: "#{FFaker::Movie.title} - #{i}")
+end
