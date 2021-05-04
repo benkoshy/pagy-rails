@@ -12,3 +12,5 @@ Rails.start()
 ActiveStorage.start()
 
 import './pagy.js.erb'
+
+console.log("Hello world")

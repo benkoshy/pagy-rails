@@ -3,7 +3,8 @@ class MoviesController < ApplicationController
 
   # GET /movies or /movies.json
   def index
-    @pagy, @movies = pagy(Movie.all)
+    # @pagy, @movies = pagy(Movie.all.order(:rating))
+    @pagy, @movies = pagy(Movie.where(rating: %i[poor good outstanding]).order(:rating))
   end
 
   # GET /movies/1 or /movies/1.json
