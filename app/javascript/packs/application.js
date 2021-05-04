@@ -7,10 +7,8 @@ import Rails from "@rails/ujs"
 import "@hotwired/turbo-rails"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import './pagy.js.erb'
 
 Rails.start()
 ActiveStorage.start()
 
-import './pagy.js.erb'
-
-console.log("Hello world")
