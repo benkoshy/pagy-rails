@@ -11,4 +11,3 @@ import './pagy.js.erb'
 
 Rails.start()
 ActiveStorage.start()
-

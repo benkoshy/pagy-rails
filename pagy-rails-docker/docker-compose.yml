@@ -2,8 +2,6 @@ version: "3.8"
 
 services:
 
-  # ruby dev and test pagy development
-  # It also runs a minimal sinatra app at http://0.0.0.0:8080
   pagy_rails:
     image: pagy-rails:latest
     build:
@@ -31,7 +29,7 @@ services:
 #      - "1234:1234"   # RubyMine debugger
       - "3035:3035"
       - "3000:3000"
-#    network_mode: host    # if you enable this you must disable th port bindings above
+    command: /opt/project/pagy-rails-docker/start.sh
     stdin_open: true
     tty: true
 
@@ -42,9 +40,9 @@ volumes:
     name: pagy_rails_user_home
 
 
-#networks:
-#  default:
-#    ipam:
-#      driver: default
-#      config:
-#        - subnet: 172.33.0.0/16
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.33.0.0/16
