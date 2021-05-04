@@ -3,14 +3,20 @@
 <table>
   <thead>
     <tr>
+      <th> ID </th>
       <th>Name</th>
-      <th colspan="3"></th>
+      <th>Rating</th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @movies.each do |movie| %>
       <tr>
+        <td><%= movie.id %></td>
         <td><%= movie.name %></td>
+        <td><%= movie.rating %></td>
         <td><%= link_to 'Show', movie %></td>
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
         <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,5 +33,8 @@
 <br>
 <p> Pagy Nav Combo JS</p>
 <%== pagy_combo_nav_js(@pagy) %>
+<br>
+<p> Pagy Items Selector JS</p>
+<%== pagy_items_selector_js(@pagy) %>
 <br>
 <%= link_to 'New Movie', new_movie_path %>

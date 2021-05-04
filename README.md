@@ -31,7 +31,9 @@ git clone --branch turbo-rails git@github.com:benkoshy/pagy-rails.git
 git clone --branch turbolinks git@github.com:benkoshy/pagy-rails.git
 ```
 
-...and then:
+Then if you use docker go [here.](pagy-rails-docker/README.md)
+
+Without docker:
 
 ```sh
 rake db:setup
@@ -42,6 +44,3 @@ yarn install
 
 rails s
 ```
-
-
-

@@ -1,0 +1,49 @@
+version: "3.8"
+
+services:
+
+  pagy_rails:
+    image: pagy-rails:latest
+    build:
+      context: .
+      dockerfile: pagy-rails.dockerfile
+      # set env variables with your user info
+      args:
+        user: $USER
+        group: $GROUP
+        uid: $UID
+        gid: $GID
+        password: "${PASSWORD:-rubydev}"
+        term: ${TERM:-xterm-256color}
+    container_name: pagy_app
+    user: $USER
+#    environment:
+#      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+#      - WEBPACKER_DEV_SERVER_PORT=3035
+#      - WEBPACKER_DEV_SERVER_PUBLIC=0.0.0.0:3035
+    volumes:
+      - ../.:/opt/project
+      - bundle:/usr/local/bundle
+      - user_home:/home/$USER
+
+    ports:
+#      - "1234:1234"   # RubyMine debugger
+      - "3035:3035"
+      - "3000:3000"
+    command: /opt/project/pagy-rails-docker/start.sh
+
+    stdin_open: true
+    tty: true
+
+volumes:
+  bundle:
+    name: pagy_rails_bundle
+  user_home:
+    name: pagy_rails_user_home
+
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.33.0.0/16

@@ -84,7 +84,7 @@ require 'pagy/extras/navs'
 
 # Items extra: Allow the client to request a custom number of items per page with an optional selector UI
 # See https://ddnexus.github.io/pagy/extras/items
-# require 'pagy/extras/items'
+require 'pagy/extras/items'
 # Pagy::VARS[:items_param] = :items    # default
 # Pagy::VARS[:max_items]   = 100       # default
 

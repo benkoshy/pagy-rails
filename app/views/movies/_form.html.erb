@@ -2,7 +2,6 @@
   <% if movie.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
-
       <ul>
         <% movie.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,12 +9,14 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :namre %>
   </div>
-
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.select :rating, Movie.ratings.keys, {:include_blank => 'Please select', required: true} %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

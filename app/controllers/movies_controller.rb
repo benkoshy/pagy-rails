@@ -3,7 +3,8 @@ class MoviesController < ApplicationController
 
   # GET /movies or /movies.json
   def index
-    @pagy, @movies = pagy(Movie.all)
+    # @pagy, @movies = pagy(Movie.all.order(:rating))
+    @pagy, @movies = pagy(Movie.where(rating: %i[poor good outstanding]).order(:rating))
   end
 
   # GET /movies/1 or /movies/1.json
@@ -64,6 +65,6 @@ class MoviesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def movie_params
-    params.require(:movie).permit(:name)
+    params.require(:movie).permit(:name, :rating)
   end
 end
