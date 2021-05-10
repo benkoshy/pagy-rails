@@ -26,15 +26,13 @@
 </table>
 <br>
 <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
-<%== pagy_nav(@pagy) %>
+<p> <b> Standard Semantic Nav </b>  </p>
+<%== pagy_semantic_nav(@pagy) %>
 <br>
-<p> Pagy Nav JS</p>
-<%== pagy_nav_js(@pagy) %>
+<p> <b> Semantic - Pagy Nav JS</b> </p>
+<%== pagy_semantic_nav_js(@pagy) %>
 <br>
-<p> Pagy Nav Combo JS</p>
-<%== pagy_combo_nav_js(@pagy) %>
-<br>
-<p> Pagy Items Selector JS</p>
-<%== pagy_items_selector_js(@pagy) %>
+<p> <b>Semantic - Pagy Nav Combo JS</b> </p>
+<%== pagy_semantic_combo_nav_js(@pagy) %>
 <br>
 <%= link_to 'New Movie', new_movie_path %>
