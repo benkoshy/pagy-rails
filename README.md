@@ -14,7 +14,7 @@ This repository contains a basic Rails App to allow you to experiment with pagy.
 
 ### How to use
 
-* When you seed the database, 50 unique records will be created.
+* When you seed the database, 500 unique records will be created.
 * These will be used to paginate.
 
 ### How to set up
@@ -36,7 +36,7 @@ git clone --branch turbolinks git@github.com:benkoshy/pagy-rails.git
 git clone --branch materialize git@github.com:benkoshy/pagy-rails.git
 ```
 
-(D) Semantic UI 
+(D) Semantic UI
 ```sh
 git clone --branch semantic-ui git@github.com:benkoshy/pagy-rails.git
 ```
