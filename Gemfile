@@ -29,7 +29,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'ffaker'
 
-gem 'pagy', '>= 4.5.1'
+gem 'pagy', '>= 4.7.0'
+#gem 'pagy', path: '/opt/pagy'
 
 gem "turbo-rails"
 
@@ -47,6 +48,7 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'rerun'
 end
 
 group :test do
