@@ -12,4 +12,4 @@ Rails.start()
 ActiveStorage.start()
 
 import './pagy.js.erb'
-
+import "../src/app.sass";
