@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
 
-  pagy_rails:
+  pagy-rails:
     image: pagy-rails:latest
     build:
       context: .
@@ -15,7 +15,7 @@ services:
         gid: $GID
         password: "${PASSWORD:-rubydev}"
         term: ${TERM:-xterm-256color}
-    container_name: pagy_app
+    container_name: pagy-rails-app
     user: $USER
 #    environment:
 #      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0

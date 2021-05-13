@@ -1,5 +1,7 @@
 #!/usr/bin/dumb-init bash
-set -e
 
 ./bin/webpack-dev-server &
-./bin/rails server -b 0.0.0.0
+rerun --wait 2 -- ./bin/rails server -b 0.0.0.0
+
+# just keep the container running if we shoot down the default servers above
+tail -f /dev/null
