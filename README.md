@@ -41,6 +41,11 @@ git clone --branch materialize git@github.com:benkoshy/pagy-rails.git
 git clone --branch semantic-ui git@github.com:benkoshy/pagy-rails.git
 ```
 
+(D) UIkit
+```sh
+git clone --branch uikit git@github.com:benkoshy/pagy-rails.git
+```
+
 Then if you use docker go [here.](pagy-rails-docker/README.md)
 
 Without docker:
