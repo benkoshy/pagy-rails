@@ -12,4 +12,5 @@ Rails.start()
 ActiveStorage.start()
 
 import './pagy.js.erb'
+import 'stylesheets/application.scss'
 

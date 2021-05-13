@@ -7,7 +7,10 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.2.1",
-    "rails-erb-loader": "5.5.2"
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.15",
+    "rails-erb-loader": "5.5.2",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   },
   "version": "0.1.0",
   "devDependencies": {
