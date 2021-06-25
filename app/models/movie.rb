@@ -3,4 +3,8 @@ class Movie < ApplicationRecord
 
   validates_presence_of :rating
   validates_presence_of :name
+
+  searchkick
+  include Pagy::Searchkick
+
 end

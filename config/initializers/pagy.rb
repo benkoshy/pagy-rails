@@ -1,8 +1,32 @@
 # frozen_string_literal: true
 
-# Pagy initializer file (4.3.0)
+# Pagy initializer file (4.10.1)
 # Customize only what you really need and notice that Pagy works also without any of the following lines.
 # Should you just cherry pick part of this file, please maintain the require-order of the extras
+
+
+# Pagy Variables
+# See https://ddnexus.github.io/pagy/api/pagy#variables
+# All the Pagy::VARS are set for all the Pagy instances but can be overridden
+# per instance by just passing them to Pagy.new or the #pagy controller method
+
+
+# Instance variables
+# See https://ddnexus.github.io/pagy/api/pagy#instance-variables
+# Pagy::VARS[:page]   = 1                                  # default
+# Pagy::VARS[:items]  = 20                                 # default
+# Pagy::VARS[:outset] = 0                                  # default
+
+
+# Other Variables
+# See https://ddnexus.github.io/pagy/api/pagy#other-variables
+# Pagy::VARS[:size]       = [1,4,4,1]                       # default
+# Pagy::VARS[:page_param] = :page                           # default
+# Pagy::VARS[:params]     = {}                              # default
+# Pagy::VARS[:fragment]   = '#fragment'                     # example
+# Pagy::VARS[:link_extra] = 'data-remote="true"'            # example
+# Pagy::VARS[:i18n_key]   = 'pagy.item_name'                # default
+# Pagy::VARS[:cycle]      = true                            # example
 
 
 # Extras
@@ -18,7 +42,6 @@
 # Countless extra: Paginate without any count, saving one query per rendering
 # See https://ddnexus.github.io/pagy/extras/countless
 # require 'pagy/extras/countless'
-# Pagy::VARS[:cycle] = false    # default
 
 # Elasticsearch Rails extra: Paginate `ElasticsearchRails::Results` objects
 # See https://ddnexus.github.io/pagy/extras/elasticsearch_rails
@@ -32,7 +55,10 @@
 # default :pagy_search method: change only if you use
 # also the elasticsearch_rails extra that defines the same
 # VARS[:searchkick_search_method] = :pagy_search
-# require 'pagy/extras/searchkick'
+require 'pagy/extras/searchkick'
+# uncomment if you are going to use Searchkick.pagy_search
+Searchkick.extend Pagy::Searchkick
+
 
 # Frontend Extras
 
@@ -56,7 +82,7 @@
 # Notice: the other frontend extras add their own framework-styled versions,
 # so require this extra only if you need the unstyled version
 # See https://ddnexus.github.io/pagy/extras/navs
-require 'pagy/extras/navs'
+# require 'pagy/extras/navs'
 
 # Semantic extra: Add nav, nav_js and combo_nav_js helpers for Semantic UI pagination
 # See https://ddnexus.github.io/pagy/extras/semantic
@@ -87,6 +113,8 @@ require 'pagy/extras/navs'
 require 'pagy/extras/items'
 # Pagy::VARS[:items_param] = :items    # default
 # Pagy::VARS[:max_items]   = 100       # default
+# set to false if you want to make :enable_items_extra an opt-in variable
+# Pagy::VARS[:enable_items_extra] = false    # default true
 
 # Overflow extra: Allow for easy handling of overflowing pages
 # See https://ddnexus.github.io/pagy/extras/overflow
@@ -105,28 +133,8 @@ require 'pagy/extras/items'
 # See https://ddnexus.github.io/pagy/extras/trim
 # require 'pagy/extras/trim'
 # after requiring it will trim by default
-# set to false if you want to make :trim an opt-in variable
-# Pagy::VARS[:trim] = true # default
-
-
-# Pagy Variables
-# See https://ddnexus.github.io/pagy/api/pagy#variables
-# All the Pagy::VARS are set for all the Pagy instances but can be overridden
-# per instance by just passing them to Pagy.new or the #pagy controller method
-
-
-# Instance variables
-# See https://ddnexus.github.io/pagy/api/pagy#instance-variables
-# Pagy::VARS[:items] = 20                                   # default
-
-
-# Other Variables
-# See https://ddnexus.github.io/pagy/api/pagy#other-variables
-# Pagy::VARS[:size]       = [1,4,4,1]                       # default
-# Pagy::VARS[:page_param] = :page                           # default
-# Pagy::VARS[:params]     = {}                              # default
-# Pagy::VARS[:anchor]     = '#anchor'                       # example
-# Pagy::VARS[:link_extra] = 'data-remote="true"'            # example
+# set to false if you want to make :enable_trim_extra an opt-in variable
+# Pagy::VARS[:enable_trim_extra] = false # default true
 
 
 # Rails
