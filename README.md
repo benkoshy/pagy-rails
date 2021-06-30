@@ -43,6 +43,12 @@ git clone --branch semantic-ui git@github.com:benkoshy/pagy-rails.git
 ```sh
 git clone --branch uikit git@github.com:benkoshy/pagy-rails.git
 ```
+
+(F) Tailwind with Turbo - [Tailwind is a CSS Framework](https://tailwindcss.com/)
+```sh
+git clone --branch tailwind git@github.com:benkoshy/pagy-rails.git
+```
+
 ### 2. Install
 
 Choose between using Docker, or simply running on your system.
