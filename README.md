@@ -66,3 +66,25 @@ yarn install
 
 rails s
 ```
+
+And then navigate to: http://localhost:3000/
+
+### 3. Switching Branches
+If you switch branches, don't forget to rerun commands to set everything up again:
+
+```sh
+git checkout tailwind_etc
+
+bundle install
+
+yarn install
+```
+
+and stop and start the servers again:
+
+```sh
+./bin/webpack-dev-server
+
+rails s
+```
+
