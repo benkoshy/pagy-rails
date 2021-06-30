@@ -43,6 +43,12 @@ git clone --branch semantic-ui git@github.com:benkoshy/pagy-rails.git
 ```sh
 git clone --branch uikit git@github.com:benkoshy/pagy-rails.git
 ```
+
+(F) Tailwind with Turbo - [Tailwind is a CSS Framework](https://tailwindcss.com/)
+```sh
+git clone --branch tailwind git@github.com:benkoshy/pagy-rails.git
+```
+
 ### 2. Install
 
 Choose between using Docker, or simply running on your system.
@@ -60,3 +66,25 @@ yarn install
 
 rails s
 ```
+
+And then navigate to: http://localhost:3000/
+
+### 3. Switching Branches
+If you switch branches, don't forget to rerun commands to set everything up again:
+
+```sh
+git checkout tailwind_etc
+
+bundle install
+
+yarn install
+```
+
+and stop and start the servers again:
+
+```sh
+./bin/webpack-dev-server
+
+rails s
+```
+
