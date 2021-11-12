@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 rating = %i[poor fair good excellent outstanding]
-1.upto(500).each do |i|
-  Movie.create(name: "#{FFaker::Movie.title} - #{i}", rating: rating[rand(5)].to_sym)
+
+1.upto(5000).each do |i|
+  Movie.create(created_at: i.months.ago, name: "#{FFaker::Movie.title} - #{i}", rating: rating[rand(5)].to_sym)
 end
