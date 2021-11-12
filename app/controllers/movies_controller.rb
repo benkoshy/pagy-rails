@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
   # GET /movies or /movies.json
   def index
     # @pagy, @movies = pagy(Movie.all.order(:rating))
-    @pagy, @movies = pagy(Movie.where(rating: %i[poor good outstanding]).order(:rating))
+    @pagy, @movies = pagy_calendar(Movie.where(rating: %i[poor good outstanding]).order(:rating))
   end
 
   # GET /movies/1 or /movies/1.json
@@ -66,5 +66,19 @@ class MoviesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def movie_params
     params.require(:movie).permit(:name, :rating)
+  end
+
+  def pagy_calendar_get_vars(collection, vars)
+    super
+    vars[:local_minmax] ||= my_local_min_max(collection)
+    vars
+  end
+
+  def pagy_calendar_get_items(collection, pagy)
+    collection.where(created_at: pagy.utc_from...pagy.utc_to)
+  end
+
+  def my_local_min_max(collection)
+    [Time.new(1605, 10, 21, 13, 18, 23, 0), Time.new(2023, 11, 13, 15, 43, 40, 0)]
   end
 end

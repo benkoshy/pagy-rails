@@ -42,13 +42,13 @@
 
 # Calendar extra: Paginate a collection by calendar Time unit (year, month, week or day)
 # See https://ddnexus.github.io/pagy/extras/calendar
-# require 'pagy/extras/calendar'
-# Pagy::DEFAULT[:local_minmax] = []          # Min and max local Time period must be set by the user (better not not as default)
-# Pagy::DEFAULT[:unit]         = :month      # Time unit allowed %i[year month week day]
+require 'pagy/extras/calendar'
+Pagy::DEFAULT[:local_minmax] = [Time.new(1605, 10, 21, 13, 18, 23, 0), Time.new(2023, 11, 13, 15, 43, 40, 0)]          # Min and max local Time period must be set by the user (better not not as default)
+Pagy::DEFAULT[:unit]         = :year      # Time unit allowed %i[year month week day]
 # Pagy::DEFAULT[:week_offset]  = 0           # Day offset from Sunday (0: Sunday; 1: Monday;... 6: Saturday)
-# Pagy::DEFAULT[:order]         = :asc        # Time direction of pagination
+Pagy::DEFAULT[:order]         = :asc        # Time direction of pagination
 # Pagy::DEFAULT[:year_format]  = '%Y'        # strftime format for :year unit
-# Pagy::DEFAULT[:month_format] = '%Y-%m'     # strftime format for :month unit
+Pagy::DEFAULT[:month_format] = '%Y-%m'     # strftime format for :month unit
 # Pagy::DEFAULT[:week_format]  = '%Y-%W'     # strftime format for :week unit
 # Pagy::DEFAULT[:day_format]   = '%Y-%m-%d'  # strftime format for :day unit
 

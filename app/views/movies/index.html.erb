@@ -6,6 +6,7 @@
       <th> ID </th>
       <th>Name</th>
       <th>Rating</th>
+      <th>Created At</th>
       <th></th>
       <th></th>
       <th></th>
@@ -17,6 +18,7 @@
         <td><%= movie.id %></td>
         <td><%= movie.name %></td>
         <td><%= movie.rating %></td>
+        <td> <%= movie.created_at.strftime("%Y-%m-%d") %></td>
         <td><%= link_to 'Show', movie %></td>
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
         <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
