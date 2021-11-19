@@ -4,7 +4,12 @@ class MoviesController < ApplicationController
   # GET /movies or /movies.json
   def index
     # @pagy, @movies = pagy(Movie.all.order(:rating))
-    @pagy, @movies = pagy_calendar(Movie.where(rating: %i[poor good outstanding]).order(:rating))
+
+    # allow sensible defaults
+    @calendar, @pagy, @movies = pagy_calendar(Movie.where(rating: %i[poor good outstanding]).order(:rating),
+                                              year:  { size:  [1, 1, 1, 1]},
+                                              month: { size:  [0, 12, 12, 0]},
+                                              pagy:  { items: 10})
   end
 
   # GET /movies/1 or /movies/1.json
@@ -68,17 +73,14 @@ class MoviesController < ApplicationController
     params.require(:movie).permit(:name, :rating)
   end
 
-  def pagy_calendar_get_vars(collection, vars)
-    super
-    vars[:local_minmax] ||= my_local_min_max(collection)
-    vars
+  def pagy_calendar_filtered(collection, utc_from, utc_to)
+    collection.where(created_at: utc_from...utc_to)
   end
 
-  def pagy_calendar_get_items(collection, pagy)
-    collection.where(created_at: pagy.utc_from...pagy.utc_to)
-  end
-
-  def my_local_min_max(collection)
-    [Time.new(1605, 10, 21, 13, 18, 23, 0), Time.new(2023, 11, 13, 15, 43, 40, 0)]
+  def pagy_calendar_minmax(collection)
+    ordered_collection = collection.order(:created_at)
+    min_time = ordered_collection.first.created_at
+    max_time = ordered_collection.last.created_at
+    return [min_time.to_time, max_time.to_time]
   end
 end

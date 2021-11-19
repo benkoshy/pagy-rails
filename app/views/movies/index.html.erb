@@ -1,15 +1,27 @@
 <p id="notice"><%= notice %></p>
 <h1>Movies</h1>
-<table>
+<%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
+<br>
+<br>
+<br>
+<%== pagy_bootstrap_nav(@calendar[:year]) %>
+<%== pagy_bootstrap_nav(@calendar[:month]) %>
+<!-- pagy info extended for the calendar unit -->
+<%== pagy_info(@pagy) %> for <%== @calendar[:month].label(format: '%B %Y') %>
+<%== pagy_bootstrap_nav(@pagy) %>
+<br>
+<br>
+<br>
+<table class="table">
   <thead>
     <tr>
-      <th> ID </th>
-      <th>Name</th>
-      <th>Rating</th>
-      <th>Created At</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th scope="col"> ID </th>
+      <th scope="col">Name</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Created At</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -26,19 +38,5 @@
     <% end %>
   </tbody>
 </table>
-<br>
-<%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
-<%== pagy_nav(@pagy) %>
-<br>
-<p> Pagy Nav JS</p>
-<%== pagy_nav_js(@pagy) %>
-<br>
-<p> Pagy Nav Combo JS</p>
-<%== pagy_combo_nav_js(@pagy) %>
-<br>
-<p> Pagy Items Selector JS</p>
-<%== pagy_items_selector_js(@pagy) %>
-<br>
-<br>
 <br>
 <%= link_to 'New Movie', new_movie_path %>
