@@ -1,42 +1,46 @@
-<p id="notice"><%= notice %></p>
-<h1>Movies</h1>
-<%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
-<br>
-<br>
-<br>
-<%== pagy_bootstrap_nav(@calendar[:year]) %>
-<%== pagy_bootstrap_nav(@calendar[:month]) %>
-<!-- pagy info extended for the calendar unit -->
-<%== pagy_info(@pagy) %> for <%== @calendar[:month].label(format: '%B %Y') %>
-<%== pagy_bootstrap_nav(@pagy) %>
-<br>
-<br>
-<br>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col"> ID </th>
-      <th scope="col">Name</th>
-      <th scope="col">Rating</th>
-      <th scope="col">Created At</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @movies.each do |movie| %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <h1>Movies</h1>
+  <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
+  <br>
+  <br>
+  <br>
+  <p> Choose Year:</p>
+  <%== pagy_bootstrap_nav(@calendar[:year]) %>
+  <p> Choose Month:</p>
+  <%== pagy_bootstrap_nav(@calendar[:month]) %>
+  <!-- pagy info extended for the calendar unit -->
+  <br>
+  <%== pagy_info(@pagy) %> for <%== @calendar[:month].label(format: '%B %Y') %>
+  <%== pagy_bootstrap_nav(@pagy) %>
+  <br>
+  <br>
+  <br>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= movie.id %></td>
-        <td><%= movie.name %></td>
-        <td><%= movie.rating %></td>
-        <td> <%= movie.created_at.strftime("%Y-%m-%d") %></td>
-        <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th scope="col"> ID </th>
+        <th scope="col">Name</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Created At</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<%= link_to 'New Movie', new_movie_path %>
+    </thead>
+    <tbody>
+      <% @movies.each do |movie| %>
+        <tr>
+          <td><%= movie.id %></td>
+          <td><%= movie.name %></td>
+          <td><%= movie.rating %></td>
+          <td> <%= movie.created_at.strftime("%Y-%m-%d") %></td>
+          <td><%= link_to 'Show', movie %></td>
+          <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+          <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <%= link_to 'New Movie', new_movie_path %></div>
