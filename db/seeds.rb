@@ -8,6 +8,10 @@
 
 rating = %i[poor fair good excellent outstanding]
 
-1.upto(5000).each do |i|
-  Movie.create(created_at: i.months.ago, name: "#{FFaker::Movie.title} - #{i}", rating: rating[rand(5)].to_sym)
+
+1.upto(240).each do |i|
+  1.upto(3).each do
+    offset_from_beginning_of_month = rand(2582000) # number of seconds in 30 days
+    Movie.create(created_at: i.months.ago + offset_from_beginning_of_month.seconds, name: "#{FFaker::Movie.title} - #{i}", rating: rating[rand(5)].to_sym)
+  end
 end
