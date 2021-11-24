@@ -49,6 +49,11 @@ git clone --branch uikit git@github.com:benkoshy/pagy-rails.git
 git clone --branch tailwind git@github.com:benkoshy/pagy-rails.git
 ```
 
+(G) Calendar - [is an "extra" pagy feature](https://ddnexus.github.io/pagy/extras/calendar)
+```sh
+git clone --branch calendar git@github.com:benkoshy/pagy-rails.git
+```
+
 ### 2. Install
 
 Choose between using Docker, or simply running on your system.
