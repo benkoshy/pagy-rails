@@ -73,14 +73,13 @@ class MoviesController < ApplicationController
     params.require(:movie).permit(:name, :rating)
   end
 
-  def pagy_calendar_filtered(collection, utc_from, utc_to)
+  def pagy_calendar_filter(collection, utc_from, utc_to)
     collection.where(created_at: utc_from...utc_to)
   end
 
-  def pagy_calendar_minmax(collection)
-    ordered_collection = collection.order(:created_at)
-    min_time = ordered_collection.first.created_at
-    max_time = ordered_collection.last.created_at
-    return [min_time.to_time, max_time.to_time]
+  def pagy_calendar_period(collection)
+    starting = collection.minimum('created_at')
+    ending   = collection.maximum('created_at')
+    [starting.in_time_zone.to_time, ending.in_time_zone.to_time]
   end
 end
