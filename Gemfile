@@ -29,12 +29,15 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'ffaker'
 
-gem 'pagy', '>= 5.4.0'
+gem 'pagy', '~> 5.5.1'
 #gem 'pagy', path: '/opt/pagy'
 
 gem "turbo-rails"
 
 group :development, :test do
+  gem 'debase'         # companion of ruby-debug-ide
+  gem 'ruby-debug-ide' # companion of debase
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
