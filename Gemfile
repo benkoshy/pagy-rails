@@ -29,7 +29,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'ffaker'
 
-gem 'pagy', '~> 5.5.1'
+gem 'pagy', '~> 5.6'
 #gem 'pagy', path: '/opt/pagy'
 
 gem "turbo-rails"

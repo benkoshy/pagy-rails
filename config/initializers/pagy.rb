@@ -42,7 +42,7 @@
 
 # Calendar extra: Paginate a collection by calendar Time unit (year, month, week or day)
 # See https://ddnexus.github.io/pagy/extras/calendar
-# require 'pagy/extras/calendar'
+require 'pagy/extras/calendar'
 # Pagy::DEFAULT[:local_minmax] = []          # Min and max local Time period must be set by the user (better not not as default)
 # Pagy::DEFAULT[:unit]         = :month      # Time unit allowed %i[year month week day]
 # Pagy::DEFAULT[:week_offset]  = 0           # Day offset from Sunday (0: Sunday; 1: Monday;... 6: Saturday)
@@ -101,7 +101,7 @@
 
 # Bootstrap extra: Add nav, nav_js and combo_nav_js helpers and templates for Bootstrap pagination
 # See https://ddnexus.github.io/pagy/extras/bootstrap
-# require 'pagy/extras/bootstrap'
+require 'pagy/extras/bootstrap'
 
 # Bulma extra: Add nav, nav_js and combo_nav_js helpers and templates for Bulma pagination
 # See https://ddnexus.github.io/pagy/extras/bulma

@@ -7,8 +7,10 @@
     <%= csp_meta_tag %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
+    <%= yield :style %>
   </head>
   <body>
+    <%= render "layouts/navbar" %>
     <%= yield %>
   </body>
 </html>
