@@ -113,7 +113,7 @@ require 'pagy/extras/bootstrap'
 
 # Materialize extra: Add nav, nav_js and combo_nav_js helpers for Materialize pagination
 # See https://ddnexus.github.io/pagy/extras/materialize
-# require 'pagy/extras/materialize'
+require 'pagy/extras/materialize'
 
 # Navs extra: Add nav_js and combo_nav_js javascript helpers
 # Notice: the other frontend extras add their own framework-styled versions,

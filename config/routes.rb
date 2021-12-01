@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   resources :bootstrap_movies, only: [:index]
   resources :semantic_movies, only: [:index]
+  resources :materialize_movies, only: [:index]
 end
