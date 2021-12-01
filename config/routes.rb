@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root "movies#index"
 
   resources :bootstrap_movies, only: [:index]
+  resources :semantic_movies, only: [:index]
 end
