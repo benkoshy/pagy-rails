@@ -1,42 +1,59 @@
-<p id="notice"><%= notice %></p>
-<h1>Movies</h1>
-<table>
-  <thead>
-    <tr>
-      <th> ID </th>
-      <th>Name</th>
-      <th>Rating</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @movies.each do |movie| %>
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<div class="container">
+  <p><%= notice %></p>
+  <!-- calendar navs -->
+  <table class="table table-responsive">
+    <thead>
       <tr>
-        <td><%= movie.id %></td>
-        <td><%= movie.name %></td>
-        <td><%= movie.rating %></td>
-        <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th> ID </th>
+        <th>Name</th>
+        <th>Rating</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
-<%== pagy_nav(@pagy) %>
-<br>
-<p> Pagy Nav JS</p>
-<%== pagy_nav_js(@pagy) %>
-<br>
-<p> Pagy Nav Combo JS</p>
-<%== pagy_combo_nav_js(@pagy) %>
-<br>
-<p> Pagy Items Selector JS</p>
-<%== pagy_items_selector_js(@pagy) %>
-<br>
-<br>
-<br>
-<%= link_to 'New Movie', new_movie_path %>
+    </thead>
+    <tbody>
+      <% @movies.each do |movie| %>
+        <tr>
+          <td><%= movie.id %></td>
+          <td><%= movie.name %></td>
+          <td><%= movie.rating %></td>
+          <td><%= link_to 'Show', movie %></td>
+          <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+          <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <% unless @calendar %>
+    <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
+    <div class="d-flex justify-content-center">
+      <%== pagy_bootstrap_nav(@pagy) %></div>
+    <br>
+    <div class="d-flex justify-content-center">
+      <p> Pagy Nav JS</p>
+    </div>
+    <div class="d-flex justify-content-center">
+      <%== pagy_bootstrap_nav_js(@pagy) %></div>
+    <br>
+    <div class="d-flex justify-content-center">
+      <p> Pagy Nav Combo JS</p>
+    </div>
+    <div class="d-flex justify-content-center">
+      <%== pagy_bootstrap_combo_nav_js(@pagy) %></div>
+    <br>
+    <div class="d-flex justify-content-center">
+      <p> Pagy Items Selector JS</p>
+    </div>
+    <div class="d-flex justify-content-center">
+      <%== pagy_items_selector_js(@pagy) %></div>
+    <br>
+    <br>
+    <%= link_to 'New Movie', new_movie_path, class: "btn btn-primary" %>
+  <% end %>
+</div>
