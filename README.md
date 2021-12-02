@@ -54,6 +54,11 @@ git clone --branch tailwind git@github.com:benkoshy/pagy-rails.git
 git clone --branch calendar git@github.com:benkoshy/pagy-rails.git
 ```
 
+(H) Bootstrap - [is an "extra" pagy feature](https://ddnexus.github.io/pagy/extras/bootstrap)
+```sh
+git clone --branch bootstrap git@github.com:benkoshy/pagy-rails.git
+```
+
 ### 2. Install
 
 Choose between using Docker, or simply running on your system.
