@@ -7,6 +7,8 @@
     <%= csp_meta_tag %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
+    <!-- since we have many stylesheets going, we don't want to cache nothing -->
+    <meta name="turbo-cache-control" content="no-cache">
     <%= yield :style %>
   </head>
   <body>
