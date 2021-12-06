@@ -127,7 +127,7 @@ require 'pagy/extras/semantic'
 
 # UIkit extra: Add nav helper and templates for UIkit pagination
 # See https://ddnexus.github.io/pagy/extras/uikit
-# require 'pagy/extras/uikit'
+require 'pagy/extras/uikit'
 
 # Multi size var used by the *_nav_js helpers
 # See https://ddnexus.github.io/pagy/extras/navs#steps

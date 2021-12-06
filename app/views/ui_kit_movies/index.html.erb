@@ -1,0 +1,78 @@
+<% content_for :style do %>
+  <!-- UIkit CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/css/uikit.min.css" />
+  <!-- UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/js/uikit-icons.min.js"></script>
+<% end %>
+<p><%= notice %></p>
+<div class="uk-container">
+  <p>
+    <% if params[:calendar] %>
+      <%= link_to "Hide Calendar", ui_kit_movies_path  %>
+    <% else %>
+      <%= link_to "Show Calendar", ui_kit_movies_path(calendar: "true")  %>
+    <% end %>
+  </p>
+  <!-- calendar navs -->
+  <% if @calendar %>
+    <div class="uk-text-center">
+      <%== pagy_uikit_nav(@calendar[:year]) %>   <!-- year nav -->
+    </div>
+    <div class="uk-text-center">
+      <%== pagy_uikit_nav(@calendar[:month]) %>  <!-- month nav -->
+    </div>
+    <div class="uk-text-center">
+      <%== pagy_info(@pagy) %> for <%== @calendar[:month].label(format: '%B %Y') %>
+    </div>
+  <% end %>
+  <% if @movies.any? %>
+    <h1>Movies</h1>
+    <table class="uk-table uk-table-divider uk-table-hover">
+      <thead>
+        <tr>
+          <th> ID </th>
+          <th> Created at</th>
+          <th>Name</th>
+          <th>Rating</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @movies.each do |movie| %>
+          <tr>
+            <td><%= movie.id %></td>
+            <td><%= movie.created_at.strftime("%F") %></td>
+            <td><%= movie.name %></td>
+            <td><%= movie.rating %></td>
+            <td><%= link_to 'Show', movie %></td>
+            <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+            <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <br>
+  <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
+  <% unless @calendar  %>
+    <p class="uk-text-center"> Pagy Nav</p>
+    <%== pagy_uikit_nav(@pagy) %>
+    <br>
+    <p class="uk-text-center"> Pagy Nav JS</p>
+    <%== pagy_uikit_nav_js(@pagy) %>
+    <br>
+    <p class="uk-text-center"> Pagy Nav Combo JS</p>
+    <%== pagy_uikit_combo_nav_js(@pagy) %>
+    <br>
+    <p class="uk-text-center"> Pagy Items Selector JS</p>
+    <div class="uk-flex uk-flex-center">
+      <%== pagy_items_selector_js(@pagy) %>
+    </div>
+  <% end %>
+  <br>
+  <%= link_to 'New Movie', new_movie_path, class: "uk-button uk-button-primary" %>
+  <br>
+  <br>
+</div>
