@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :semantic_movies, only: [:index]
   resources :materialize_movies, only: [:index]
   resources :ui_kit_movies, only: [:index]
+  resources :tailwind_movies, only: [:index]
 end
