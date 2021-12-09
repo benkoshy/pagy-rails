@@ -2,7 +2,6 @@
   <%= javascript_pack_tag 'tailwind', media: 'all', 'data-turbo-track': 'reload' %>
 <% end %>
 <div class="container mx-auto">
-  <h1> Tailwind </h1>
   <p><%= notice %></p>
   <p>
     <% if params[:calendar] %>
@@ -13,16 +12,20 @@
   </p>
   <!-- calendar navs -->
   <% if @calendar %>
+    <br>
     <div>
       <%== pagy_nav(@calendar[:year]) %>   <!-- year nav -->
     </div>
+    <br>
     <div>
       <%== pagy_nav(@calendar[:month]) %>  <!-- month nav -->
     </div>
+    <br>
     <div>
       <%== pagy_info(@pagy) %> for <%== @calendar[:month].label(format: '%B %Y') %>
     </div>
   <% end %>
+  <br>
   <table class="table table-auto">
     <thead>
       <tr>

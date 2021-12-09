@@ -2,8 +2,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
   <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 <% end %>
-<div class="ui center aligned container ">
-  <p><%= notice %></p>
+<div class="ui container">
   <p>
     <% if params[:calendar] %>
       <%= link_to "Hide Calendar", semantic_movies_path  %>
@@ -11,14 +10,19 @@
       <%= link_to "Show Calendar", semantic_movies_path(calendar: "true")  %>
     <% end %>
   </p>
+</div>
+<div class="ui center aligned container ">
+  <p><%= notice %></p>
   <!-- calendar navs -->
   <% if @calendar %>
     <div>
       <%== pagy_semantic_nav(@calendar[:year]) %>   <!-- year nav -->
     </div>
+    <br>
     <div>
       <%== pagy_semantic_nav(@calendar[:month]) %>  <!-- month nav -->
     </div>
+    <br>
     <div>
       <%== pagy_info(@pagy) %> for <%== @calendar[:month].label(format: '%B %Y') %>
     </div>
