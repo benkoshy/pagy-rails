@@ -1,6 +1,6 @@
-<p id="notice"><%= notice %></p>
+<p><%= notice %></p>
 <h1>Movies</h1>
-<table>
+<table class="table table-responsive">
   <thead>
     <tr>
       <th> ID </th>
@@ -36,5 +36,7 @@
 <br>
 <p> Pagy Items Selector JS</p>
 <%== pagy_items_selector_js(@pagy) %>
+<br>
+<br>
 <br>
 <%= link_to 'New Movie', new_movie_path %>

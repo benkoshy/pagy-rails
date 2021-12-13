@@ -1,0 +1,85 @@
+<% content_for :style do %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<% end %>
+<div class="container">
+  <p><%= notice %></p>
+  <p>
+    <% if params[:calendar] %>
+      <%= link_to "Hide Calendar", materialize_movies_path  %>
+    <% else %>
+      <%= link_to "Show Calendar", materialize_movies_path(calendar: "true")  %>
+    <% end %>
+  </p>
+  <!-- calendar navs -->
+  <% if @calendar %>
+    <br>
+    <div class="valign-wrapper">
+      <%== pagy_materialize_nav(@calendar[:year]) %>   <!-- year nav -->
+    </div>
+    <div class="valign-wrapper">
+      <%== pagy_materialize_nav(@calendar[:month]) %>  <!-- month nav -->
+    </div>
+    <div class="valign-wrapper">
+      <%== pagy_info(@pagy) %> for <%== @calendar[:month].label(format: '%B %Y') %>
+    </div>
+    <br>
+    <br>
+    <br>
+  <% end %>
+  <table class="striped responsive-table">
+    <thead>
+      <tr>
+        <th> ID </th>
+        <th>Created at</th>
+        <th>Name</th>
+        <th>Rating</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movies.each do |movie| %>
+        <tr>
+          <td><%= movie.id %></td>
+          <td><%= movie.created_at.strftime("%F") %></td>
+          <td><%= movie.name %></td>
+          <td><%= movie.rating %></td>
+          <td><%= link_to 'Show', movie %></td>
+          <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+          <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <% unless @calendar %>
+    <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
+    <div class="valign-wrapper">
+      <%== pagy_materialize_nav(@pagy) %></div>
+    <br>
+    <div class="valign-wrapper">
+      <p> Pagy Nav JS</p>
+    </div>
+    <div class="valign-wrapper">
+      <%== pagy_materialize_nav_js(@pagy) %></div>
+    <br>
+    <div class="valign-wrapper">
+      <p> Pagy Nav Combo JS</p>
+    </div>
+    <div class="valign-wrapper">
+      <%== pagy_materialize_combo_nav_js(@pagy) %></div>
+    <br>
+    <div class="valign-wrapper">
+      <p> Pagy Items Selector JS</p>
+    </div>
+    <div class="valign-wrapper">
+      <%== pagy_items_selector_js(@pagy) %></div>
+    <br>
+    <br>
+    <%= link_to 'New Movie', new_movie_path, class: "btn btn-primary" %>
+  <% end %>
+</div>

@@ -1,0 +1,82 @@
+<% content_for :style do %>
+  <%= javascript_pack_tag 'tailwind', media: 'all', 'data-turbo-track': 'reload' %>
+<% end %>
+<div class="container mx-auto">
+  <p><%= notice %></p>
+  <p>
+    <% if params[:calendar] %>
+      <%= link_to "Hide Calendar", tailwind_movies_path, class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600" %>
+    <% else %>
+      <%= link_to "Show Calendar", tailwind_movies_path(calendar: "true"), class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600" %>
+    <% end %>
+  </p>
+  <!-- calendar navs -->
+  <% if @calendar %>
+    <br>
+    <div>
+      <%== pagy_nav(@calendar[:year]) %>   <!-- year nav -->
+    </div>
+    <br>
+    <div>
+      <%== pagy_nav(@calendar[:month]) %>  <!-- month nav -->
+    </div>
+    <br>
+    <div>
+      <%== pagy_info(@pagy) %> for <%== @calendar[:month].label(format: '%B %Y') %>
+    </div>
+  <% end %>
+  <br>
+  <table class="table table-auto">
+    <thead>
+      <tr>
+        <th> ID </th>
+        <th>Created at</th>
+        <th>Name</th>
+        <th>Rating</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movies.each do |movie| %>
+        <tr>
+          <td><%= movie.id %></td>
+          <td><%= movie.created_at.strftime("%F") %></td>
+          <td><%= movie.name %></td>
+          <td><%= movie.rating %></td>
+          <td><%= link_to 'Show', movie_path(movie), class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600" %> </td>
+          <td><%= link_to 'Edit', edit_movie_path(movie), class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600" %></td>
+          <td><%= link_to 'Destroy', movie, class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <% unless @calendar %>
+    <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
+    <div>
+      <%== pagy_nav(@pagy) %></div>
+    <br>
+    <div>
+      <p> Pagy Nav JS</p>
+    </div>
+    <div>
+      <%== pagy_nav_js(@pagy) %></div>
+    <br>
+    <div>
+      <p> Pagy Nav Combo JS</p>
+    </div>
+    <div>
+      <%== pagy_combo_nav_js(@pagy) %></div>
+    <br>
+    <div>
+      <p> Pagy Items Selector JS</p>
+    </div>
+    <div>
+      <%== pagy_items_selector_js(@pagy) %></div>
+    <br>
+    <br>
+    <%= link_to 'New Movie', new_movie_path, class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600" %>
+  <% end %>
+</div>
