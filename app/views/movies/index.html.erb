@@ -1,6 +1,27 @@
 <p><%= notice %></p>
-<h1>Movies</h1>
-<table class="table table-responsive">
+<p>
+  <% if params[:calendar] %>
+    <%= link_to "Hide Calendar", movies_path  %>
+  <% else %>
+    <%= link_to "Show Calendar", movies_path(calendar: "true")  %>
+  <% end %>
+</p>
+<!-- calendar navs -->
+<% if @calendar %>
+  <div>
+    <%== pagy_nav(@calendar[:year]) %>   <!-- year nav -->
+  </div>
+  <br>
+  <div>
+    <%== pagy_nav(@calendar[:month]) %>  <!-- month nav -->
+  </div>
+  <br>
+  <div>
+    <%== pagy_info(@pagy) %> for <%== @calendar[:month].label(format: '%B %Y') %>
+  </div>
+  <br>
+<% end %>
+<table>
   <thead>
     <tr>
       <th> ID </th>
