@@ -3,9 +3,9 @@ class BootstrapMoviesController < ApplicationController
 
   # GET /movies or /movies.json
   def index
-    movie_collection = Movie.where(rating: %i[poor good outstanding]).order(:rating)
+    movie_collection = Movie.search "*", where: {rating: %i[poor good outstanding]}, order: {_score: :desc}
 
-    if params[:calendar]
+    if false # let's ignore this
       @calendar, @pagy, @movies = pagy_calendar(movie_collection, year:   { size: [1, 1, 1, 1] },
                                                 month:  { size: [0, 12, 12, 0], format: '%b' },
                                                 pagy:   { items: 10 },
@@ -26,6 +26,4 @@ class BootstrapMoviesController < ApplicationController
   def pagy_calendar_filter(collection, from, to)
     collection.where(created_at: from...to)  # 3-dots range excluding the end value
   end
-
-
 end
