@@ -117,7 +117,8 @@ GEM
     hashie (5.0.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
-    jbuilder (2.11.4)
+    jbuilder (2.11.5)
+      actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -275,7 +276,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 3.0.1p64
+   ruby 3.0.3p157
 
 BUNDLED WITH
-   2.2.15
+   2.2.32
