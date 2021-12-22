@@ -1,4 +1,4 @@
-FROM ruby:3 AS pagy4
+FROM ruby:3.0.3 AS pagy4
 
 ARG term
 ENV TERM="${term:-xterm-256color}"
