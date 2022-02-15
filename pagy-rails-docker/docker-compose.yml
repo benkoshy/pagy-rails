@@ -9,10 +9,10 @@ services:
       dockerfile: pagy-rails.dockerfile
       # set env variables with your user info
       args:
-        user: koshy
+        user: $USER
         group: $GROUP
-        uid: 1000
-        gid: 1000
+        uid: $UID
+        gid: $GID
         password: "${PASSWORD:-rubydev}"
         term: ${TERM:-xterm-256color}
     container_name: pagy-rails-app
