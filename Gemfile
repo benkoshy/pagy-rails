@@ -30,7 +30,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'ffaker'
 
 #gem 'pagy', '~> 5.6'
-gem 'pagy', path: '~/Documents/www/OpenSourceProjects/pagy'
+# gem 'pagy', path: '~/Documents/www/OpenSourceProjects/pagy'
+gem 'pagy', git: 'https://github.com/benkoshy/pagy.git', branch: 'fix-bootstrap-combo-nav-js'
 
 gem "turbo-rails"
 
