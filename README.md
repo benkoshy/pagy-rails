@@ -15,7 +15,7 @@ This repository contains a basic Rails App to allow you to experiment with pagy.
 
 ## How to set up:
 
-### 1. Choose a branch 
+### 1. Choose a branch
 
 The different branches show pagy's functionality with different: (i) javascript libraries, and (ii) CSS frameworks. Choose checkout the branch that works for you:
 
@@ -60,12 +60,6 @@ git clone --branch bootstrap git@github.com:benkoshy/pagy-rails.git
 ```
 
 ### 2. Install
-
-Choose between using Docker, or simply running on your system.
-
-(a) If you use docker go [here.](pagy-rails-docker/README.md)
-
-(b) Without docker:
 
 ```sh
 rake db:setup
