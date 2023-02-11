@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'foundation_movies/index'
   resources :movies
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
@@ -11,4 +12,5 @@ Rails.application.routes.draw do
   resources :tailwind_movies, only: [:index]
 
   resources :bulma_movies, only: [:index]
+  resources :foundation_movies, only: [:index]
 end
