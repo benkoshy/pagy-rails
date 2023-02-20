@@ -1,10 +1,7 @@
 <!-- Compressed CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css" crossorigin="anonymous">
-
 <!-- Compressed JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js" crossorigin="anonymous"></script>
-
-
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
@@ -15,6 +12,7 @@
     <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
+    
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
@@ -22,16 +20,32 @@
         </div>
       </div>
 
-  <p><%= notice %></p>
-  <p>
-    <% if params[:calendar] %>
+
+      <nav class="pagy-foundation-combo-nav-js" aria-label="Pagination">
+        <div class="input-group" data-pagy="WyJjb21ibyIsIlx1MDAzY2EgaHJlZj1cIi9mb3VuZGF0aW9uX21vdmllcz9wYWdlPV9fcGFneV9wYWdlX19cdTAwMjZhbXA7aXRlbXM9MjBcIiAgIHN0eWxlPVwiZGlzcGxheTogbm9uZTtcIlx1MDAzZVx1MDAzYy9hXHUwMDNlIl0=">
+          <a style="margin-bottom: 0" class="prev button primary disabled" href="#">‹&nbsp;Prev</a>
+          <span class="input-group-label">
+            <label>Page
+              <input class="input-group-field cell shrink" type="number" min="1" max="168" value="1" style="width: 4rem; padding: 0 0.3rem; margin: 0 0.3rem;"> 
+              of 168
+            </label>
+          </span>
+        <a href="/foundation_movies?page=2&amp;items=20" rel="next" style="margin-bottom: 0" aria-label="next" class="next button primary">Next&nbsp;›</a>
+      </div>
+    </nav>
+
+
+
+    <p><%= notice %></p>
+    <p>
+      <% if params[:calendar] %>
       <%= link_to "Hide Calendar", foundation_movies_path  %>
-    <% else %>
+      <% else %>
       <%= link_to "Show Calendar", foundation_movies_path(calendar: "true")  %>
-    <% end %>
-  </p>
-  <!-- calendar navs -->
-  <% if @calendar %>
+      <% end %>
+    </p>
+    <!-- calendar navs -->
+    <% if @calendar %>
     <div>
       <%== pagy_foundation_nav(@calendar[:year]) %>   <!-- year nav -->
     </div>
@@ -41,22 +55,21 @@
     <div>
       <%== pagy_info(@pagy) %> for <%== @calendar[:month].label(format: '%B %Y') %>
     </div>
-  <% end %>
-
-  <table class="stack">
-    <thead>
-      <tr>
-        <th> ID </th>
-        <th>Created at</th>
-        <th>Name</th>
-        <th>Rating</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @movies.each do |movie| %>
+    <% end %>
+    <table class="stack">
+      <thead>
+        <tr>
+          <th> ID </th>
+          <th>Created at</th>
+          <th>Name</th>
+          <th>Rating</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @movies.each do |movie| %>
         <tr>
           <td><%= movie.id %></td>
           <td><%= movie.created_at.strftime("%F") %></td>
@@ -66,26 +79,25 @@
           <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
           <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-<% unless @calendar %>
+        <% end %>
+      </tbody>
+    </table>
+    <% unless @calendar %>
     <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
     <div>
-      <%== pagy_foundation_nav(@pagy) %></div>
+    <%== pagy_foundation_nav(@pagy) %></div>
     <br>
     <div>
       <p> Pagy Nav JS</p>
     </div>
     <div>
-      <%== pagy_foundation_nav_js(@pagy) %></div>
+    <%== pagy_foundation_nav_js(@pagy) %></div>
     <br>
     <div>
       <p> Pagy Nav Combo JS</p>
     </div>
     <div>
-      <%== pagy_foundation_combo_nav_js(@pagy) %></div>
+    <%== pagy_foundation_combo_nav_js(@pagy) %></div>
     <br>
     <div>
       <p> Pagy Items Selector JS</p>
@@ -97,10 +109,8 @@
     <br>
     <br>
     <%= link_to 'New Movie', new_movie_path, class: "button primary" %>
-  <% end %>
-
-      
-    </div>    
-  </body>
+    <% end %>
+    
+  </div>
+</body>
 </html>
-
