@@ -33,7 +33,6 @@ git clone --branch turbolinks git@github.com:benkoshy/pagy-rails.git
 ```sh
 git clone --branch master git@github.com:benkoshy/pagy-rails.git
 ```
-
 ### 2. Install
 
 ```sh
