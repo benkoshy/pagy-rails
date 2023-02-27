@@ -1,3 +1,7 @@
+### Currently Upgrading
+
+Folks, I beg your utmost patience. I am currently in the process of upgrading to Rails 7, ripping out webpacker, and demo-ing basic functionality with Turbo Streams and Frames. The app does not work as-is, but will soon be shortly.
+
 # What is this?
 
 This repository contains a basic Rails App to allow you to experiment with pagy.
