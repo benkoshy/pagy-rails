@@ -42,7 +42,7 @@
 
 # Calendar extra: Paginate a collection by calendar Time unit (year, month, week or day)
 # See https://ddnexus.github.io/pagy/extras/calendar
-# require 'pagy/extras/calendar'
+require 'pagy/extras/calendar'
 # Pagy::DEFAULT[:local_minmax] = []          # Min and max local Time period must be set by the user (better not not as default)
 # Pagy::DEFAULT[:unit]         = :month      # Time unit allowed %i[year month week day]
 # Pagy::DEFAULT[:week_offset]  = 0           # Day offset from Sunday (0: Sunday; 1: Monday;... 6: Saturday)
@@ -101,19 +101,19 @@
 
 # Bootstrap extra: Add nav, nav_js and combo_nav_js helpers and templates for Bootstrap pagination
 # See https://ddnexus.github.io/pagy/extras/bootstrap
-# require 'pagy/extras/bootstrap'
+require 'pagy/extras/bootstrap'
 
 # Bulma extra: Add nav, nav_js and combo_nav_js helpers and templates for Bulma pagination
 # See https://ddnexus.github.io/pagy/extras/bulma
-# require 'pagy/extras/bulma'
+require 'pagy/extras/bulma'
 
 # Foundation extra: Add nav, nav_js and combo_nav_js helpers and templates for Foundation pagination
 # See https://ddnexus.github.io/pagy/extras/foundation
-# require 'pagy/extras/foundation'
+require 'pagy/extras/foundation'
 
 # Materialize extra: Add nav, nav_js and combo_nav_js helpers for Materialize pagination
 # See https://ddnexus.github.io/pagy/extras/materialize
-# require 'pagy/extras/materialize'
+require 'pagy/extras/materialize'
 
 # Navs extra: Add nav_js and combo_nav_js javascript helpers
 # Notice: the other frontend extras add their own framework-styled versions,
@@ -123,11 +123,11 @@ require 'pagy/extras/navs'
 
 # Semantic extra: Add nav, nav_js and combo_nav_js helpers for Semantic UI pagination
 # See https://ddnexus.github.io/pagy/extras/semantic
-# require 'pagy/extras/semantic'
+require 'pagy/extras/semantic'
 
 # UIkit extra: Add nav helper and templates for UIkit pagination
 # See https://ddnexus.github.io/pagy/extras/uikit
-# require 'pagy/extras/uikit'
+require 'pagy/extras/uikit'
 
 # Multi size var used by the *_nav_js helpers
 # See https://ddnexus.github.io/pagy/extras/navs#steps

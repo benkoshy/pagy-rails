@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
+    <!-- since we have many stylesheets going, we don't want to cache nothing -->
+    <meta name="turbo-cache-control" content="no-cache">
+    <meta name="turbo-visit-control" content="reload">
+    <%= yield :style %>
   </head>
   <body>
+    <%= render "layouts/navbar" %>
     <%= yield %>
   </body>
 </html>

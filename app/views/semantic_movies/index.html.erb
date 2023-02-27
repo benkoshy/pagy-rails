@@ -1,0 +1,83 @@
+<% content_for :style do %>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<% end %>
+<div class="ui container">
+  <p>
+    <% if params[:calendar] %>
+      <%= link_to "Hide Calendar", semantic_movies_path  %>
+    <% else %>
+      <%= link_to "Show Calendar", semantic_movies_path(calendar: "true")  %>
+    <% end %>
+  </p>
+</div>
+<div class="ui center aligned container ">
+  <p><%= notice %></p>
+  <!-- calendar navs -->
+  <% if @calendar %>
+    <div>
+      <%== pagy_semantic_nav(@calendar[:year]) %>   <!-- year nav -->
+    </div>
+    <br>
+    <div>
+      <%== pagy_semantic_nav(@calendar[:month]) %>  <!-- month nav -->
+    </div>
+    <br>
+    <div>
+      <%== pagy_info(@pagy) %> for <%== @calendar[:month].label(format: '%B %Y') %>
+    </div>
+  <% end %>
+  <table class="ui celled table">
+    <thead>
+      <tr>
+        <th> ID </th>
+        <th>Created at</th>
+        <th>Name</th>
+        <th>Rating</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @movies.each do |movie| %>
+        <tr>
+          <td><%= movie.id %></td>
+          <td><%= movie.created_at.strftime("%F") %></td>
+          <td><%= movie.name %></td>
+          <td><%= movie.rating %></td>
+          <td><%= link_to 'Show', movie %></td>
+          <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+          <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <% unless @calendar %>
+    <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
+    <div>
+      <%== pagy_semantic_nav(@pagy) %></div>
+    <br>
+    <div>
+      <p> Pagy Nav JS</p>
+    </div>
+    <div>
+      <%== pagy_semantic_nav_js(@pagy) %></div>
+    <br>
+    <div>
+      <p> Pagy Nav Combo JS</p>
+    </div>
+    <div>
+      <%== pagy_semantic_combo_nav_js(@pagy) %></div>
+    <br>
+    <div>
+      <p> Pagy Items Selector JS</p>
+    </div>
+    <div>
+      <%== pagy_items_selector_js(@pagy) %></div>
+    <br>
+    <br>
+    <%= link_to 'New Movie', new_movie_path, class: "btn btn-primary" %>
+  <% end %>
+</div>
