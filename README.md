@@ -29,34 +29,9 @@ git clone --branch turbo-rails git@github.com:benkoshy/pagy-rails.git
 git clone --branch turbolinks git@github.com:benkoshy/pagy-rails.git
 ```
 
-(C) Materialize CSS with Turbo - [Materialise is a CSS Framework](https://materializecss.com/)
+(C) Master - Default Canonical Rails Example - Multiple Stylesheets
 ```sh
-git clone --branch materialize git@github.com:benkoshy/pagy-rails.git
-```
-
-(D) Semantic UI with Turbo - [Semantic UI is a CSS Framework](https://semantic-ui.com/)
-```sh
-git clone --branch semantic-ui git@github.com:benkoshy/pagy-rails.git
-```
-
-(E) UIkit with Turbo - [UIkit is a CSS Framework](https://getuikit.com) 
-```sh
-git clone --branch uikit git@github.com:benkoshy/pagy-rails.git
-```
-
-(F) Tailwind with Turbo - [Tailwind is a CSS Framework](https://tailwindcss.com/)
-```sh
-git clone --branch tailwind git@github.com:benkoshy/pagy-rails.git
-```
-
-(G) Calendar - [is an "extra" pagy feature](https://ddnexus.github.io/pagy/extras/calendar)
-```sh
-git clone --branch calendar git@github.com:benkoshy/pagy-rails.git
-```
-
-(H) Bootstrap - [is an "extra" pagy feature](https://ddnexus.github.io/pagy/extras/bootstrap)
-```sh
-git clone --branch bootstrap git@github.com:benkoshy/pagy-rails.git
+git clone --branch master git@github.com:benkoshy/pagy-rails.git
 ```
 
 ### 2. Install
