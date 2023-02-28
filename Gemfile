@@ -30,6 +30,8 @@ gem 'pagy', '~> 6.0'
 
 gem "turbo-rails"
 
+gem "importmap-rails"
+
 group :development, :test do
   gem 'debase'         # companion of ruby-debug-ide
   gem 'ruby-debug-ide' # companion of debase
@@ -60,3 +62,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "stimulus-rails", "~> 1.2"
