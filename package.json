@@ -2,6 +2,7 @@
   "name": "test-js-pagy",
   "private": true,
   "dependencies": {
+    "@hotwired/stimulus": "3.2.1",
     "@hotwired/turbo-rails": "7.0.0-beta.5",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
@@ -14,6 +15,6 @@
     "postcss": "8"
   },
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
+    "build": "NODE_PATH=\"$(bundle show 'pagy')/lib/javascripts\" esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
   }
 }
