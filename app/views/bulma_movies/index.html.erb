@@ -1,6 +1,6 @@
 <% content_for :style do %>
   <!-- CSS only -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <% end %>
 <div class="container is-fluid">
   <p><%= notice %></p>
@@ -58,20 +58,21 @@
     <div>
       <p> Pagy Nav JS</p>
     </div>
-    <div>
+    <div data-controller="pagy-initializer">
       <%== pagy_bulma_nav_js(@pagy) %></div>
     <br>
     <div>
       <p> Pagy Nav Combo JS</p>
     </div>
-    <div>
+    <div data-controller="pagy-initializer">
       <%== pagy_bulma_combo_nav_js(@pagy) %></div>
     <br>
     <div>
       <p> Pagy Items Selector JS</p>
     </div>
-    <div>
-      <%== pagy_items_selector_js(@pagy) %></div>
+    <div  data-controller="pagy-initializer">
+      <%== pagy_items_selector_js(@pagy) %>        
+    </div>
     <br>
     <br>
     <%= link_to 'New Movie', new_movie_path, class: "btn is-primary" %>

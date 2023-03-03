@@ -70,13 +70,18 @@
       <p> Pagy Nav Combo JS</p>
     </div>
     <div class="d-flex justify-content-center">
-      <%== pagy_bootstrap_combo_nav_js(@pagy) %></div>
+      <div data-controller="pagy-initializer">
+          <%== pagy_bootstrap_combo_nav_js(@pagy) %>  
+      </div>
+    </div>
     <br>
     <div class="d-flex justify-content-center">
       <p> Pagy Items Selector JS</p>
     </div>
-    <div class="d-flex justify-content-center">
-      <%== pagy_items_selector_js(@pagy) %></div>
+    <div class="d-flex justify-content-center" data-controller="pagy-initializer">
+      <%== pagy_items_selector_js(@pagy) %>
+        
+    </div>
     <br>
     <br>
     <%= link_to 'New Movie', new_movie_path, class: "btn btn-primary" %>

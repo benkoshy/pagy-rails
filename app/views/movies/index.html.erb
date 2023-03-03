@@ -53,10 +53,14 @@
 <%== pagy_nav_js(@pagy) %>
 <br>
 <p> Pagy Nav Combo JS</p>
-<%== pagy_combo_nav_js(@pagy) %>
+<div>
+  <%== pagy_combo_nav_js(@pagy) %>
+</div>
 <br>
 <p> Pagy Items Selector JS</p>
-<%== pagy_items_selector_js(@pagy) %>
+<div data-controller="pagy-initializer">
+  <%== pagy_items_selector_js(@pagy) %>
+</div>
 <br>
 <br>
 <br>

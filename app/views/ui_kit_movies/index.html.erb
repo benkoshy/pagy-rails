@@ -60,13 +60,13 @@
     <%== pagy_uikit_nav(@pagy) %>
     <br>
     <p class="uk-text-center"> Pagy Nav JS</p>
-    <%== pagy_uikit_nav_js(@pagy) %>
+    <div data-controller="pagy-initializer"><%== pagy_uikit_nav_js(@pagy) %></div>
     <br>
     <p class="uk-text-center"> Pagy Nav Combo JS</p>
-    <%== pagy_uikit_combo_nav_js(@pagy) %>
+    <div data-controller="pagy-initializer"><%== pagy_uikit_combo_nav_js(@pagy) %></div>
     <br>
     <p class="uk-text-center"> Pagy Items Selector JS</p>
-    <div class="uk-flex uk-flex-center">
+    <div class="uk-flex uk-flex-center"  data-controller="pagy-initializer">
       <%== pagy_items_selector_js(@pagy) %>
     </div>
   <% end %>
