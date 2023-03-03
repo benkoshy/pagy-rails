@@ -221,12 +221,4 @@ require 'pagy/extras/items'
 
 # When you are done setting your own defaults freeze it,
 # so it will not changed accidentally
-
-Rails.application.config.importmap.paths << Pagy.root.join('javascripts/pagy-module')
-
-# pin File.expand_path("../app/assets/javascripts", __dir__)
-
-
 Pagy::DEFAULT.freeze
-
-

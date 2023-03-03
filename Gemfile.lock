@@ -95,9 +95,6 @@ GEM
       activesupport (>= 5.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    importmap-rails (1.1.5)
-      actionpack (>= 6.0.0)
-      railties (>= 6.0.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -201,8 +198,6 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.6.1-x86_64-linux)
-    stimulus-rails (1.2.1)
-      railties (>= 6.0.0)
     thor (1.2.1)
     tilt (2.1.0)
     timeout (0.3.2)
@@ -238,7 +233,6 @@ DEPENDENCIES
   capybara (>= 3.26)
   debase
   ffaker
-  importmap-rails
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pagy (~> 6.0)
@@ -252,7 +246,6 @@ DEPENDENCIES
   selenium-webdriver
   spring
   sqlite3 (~> 1.4)
-  stimulus-rails (~> 1.2)
   turbo-rails
   tzinfo-data
   web-console (>= 4.1.0)
