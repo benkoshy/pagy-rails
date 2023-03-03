@@ -1,6 +1,6 @@
-### Currently Upgrading
+### Using ES Build
 
-Folks, I beg your utmost patience. I am currently in the process of upgrading to Rails 7, ripping out webpacker, and demo-ing basic functionality with Turbo Streams and Frames. The app does not work as-is, but will soon be shortly.
+Please have a look at the package.json file to see how we are loading pagy.js dependencies. If you are not using js. then you don't need to worry about that!
 
 # What is this?
 
@@ -44,9 +44,7 @@ rake db:setup
 
 yarn install
 
-./bin/webpack-dev-server
-
-rails s
+./bin/dev
 ```
 
 And then navigate to: http://localhost:3000/
@@ -65,8 +63,6 @@ yarn install
 and stop and start the servers again:
 
 ```sh
-./bin/webpack-dev-server
-
-rails s
+./bin/dev
 ```
 
