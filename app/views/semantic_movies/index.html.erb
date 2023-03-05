@@ -27,6 +27,8 @@
       <%== pagy_info(@pagy) %> for <%== @calendar[:month].label(format: '%B %Y') %>
     </div>
   <% end %>
+
+<% if @movies.any? %>
   <table class="ui celled table">
     <thead>
       <tr>
@@ -53,6 +55,8 @@
       <% end %>
     </tbody>
   </table>
+<% end %>
+
   <br>
   <% unless @calendar %>
     <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>

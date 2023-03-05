@@ -26,6 +26,8 @@
     </div>
   <% end %>
   <br>
+
+<% if @movies.any? %>
   <table class="table table-auto">
     <thead>
       <tr>
@@ -52,6 +54,8 @@
       <% end %>
     </tbody>
   </table>
+<% end %>
+
   <br>
   <% unless @calendar %>
     <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>

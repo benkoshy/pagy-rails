@@ -21,6 +21,8 @@
   </div>
   <br>
 <% end %>
+
+<% if @movies.any? %>
 <table>
   <thead>
     <tr>
@@ -45,6 +47,8 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
+
 <br>
 <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
 <%== pagy_nav(@pagy) %>

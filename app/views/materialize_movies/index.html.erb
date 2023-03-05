@@ -29,32 +29,34 @@
     <br>
     <br>
   <% end %>
-  <table class="striped responsive-table">
-    <thead>
-      <tr>
-        <th> ID </th>
-        <th>Created at</th>
-        <th>Name</th>
-        <th>Rating</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @movies.each do |movie| %>
+  <% if @movies.any? %>
+    <table class="striped responsive-table">
+      <thead>
         <tr>
-          <td><%= movie.id %></td>
-          <td><%= movie.created_at.strftime("%F") %></td>
-          <td><%= movie.name %></td>
-          <td><%= movie.rating %></td>
-          <td><%= link_to 'Show', movie %></td>
-          <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-          <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <th> ID </th>
+          <th>Created at</th>
+          <th>Name</th>
+          <th>Rating</th>
+          <th></th>
+          <th></th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @movies.each do |movie| %>
+          <tr>
+            <td><%= movie.id %></td>
+            <td><%= movie.created_at.strftime("%F") %></td>
+            <td><%= movie.name %></td>
+            <td><%= movie.rating %></td>
+            <td><%= link_to 'Show', movie %></td>
+            <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+            <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
   <br>
   <% unless @calendar %>
     <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>

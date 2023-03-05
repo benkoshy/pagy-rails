@@ -22,9 +22,11 @@
       <%== pagy_bootstrap_nav(@calendar[:month]) %>  <!-- month nav -->
     </div>
     <div class="d-flex justify-content-center">
-      <%== pagy_info(@pagy) %> for <%== @calendar[:month].label(format: '%B %Y') %>
+      <%== pagy_info(@pagy) %> <span class="px-1"> for </span> <%== @calendar[:month].label(format: '%B %Y') %>
     </div>
   <% end %>
+
+<% if @movies.any? %>
   <table class="table table-responsive">
     <thead>
       <tr>
@@ -51,6 +53,9 @@
       <% end %>
     </tbody>
   </table>
+
+<% end %>
+
   <br>
   <% unless @calendar %>
     <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
