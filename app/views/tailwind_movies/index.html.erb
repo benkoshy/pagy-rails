@@ -1,6 +1,44 @@
 <% content_for :style do %>
-  <%= javascript_pack_tag 'tailwind', media: 'all', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>  
 <% end %>
+<nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+  <div class="container flex flex-wrap items-center justify-between mx-auto">
+    <a href="https://github.com/benkoshy/pagy-rails" class="flex items-center">        
+        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Pagy Rails</span>
+    </a>    
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">        
+        <li>
+          <%= link_to("No Styling", movies_path , class: "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white", "aria-current":"page") %>
+        </li>
+        <li>
+          <%= link_to("Bootstrap", bootstrap_movies_path , class: "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white", "aria-current":"page") %>
+        </li>        
+        <li>
+          <%= link_to("Semantic", semantic_movies_path , class: "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white", "aria-current":"page") %>
+        </li>        
+        <li>
+          <%= link_to("Materialize", materialize_movies_path , class: "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white", "aria-current":"page") %>
+        </li>        
+        <li>
+          <%= link_to("Tailwind", tailwind_movies_path , class: "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white", "aria-current":"page") %>
+        </li>        
+        <li>
+          <%= link_to("UI Kit", ui_kit_movies_path , class: "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white", "aria-current":"page") %>
+        </li>        
+        <li>
+          <%= link_to("Bulma", bulma_movies_path , class: "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white", "aria-current":"page") %>
+        </li>       
+        <li>
+          <%= link_to("Foundation", foundation_movies_path , class: "block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white", "aria-current":"page") %>
+        </li>       
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
 <div class="container mx-auto">
   <p><%= notice %></p>
   <p>

@@ -84,6 +84,8 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
+    cssbundling-rails (1.1.2)
+      railties (>= 6.0.0)
     date (3.3.3)
     debase (0.2.4.1)
       debase-ruby_core_source (>= 0.10.2)
@@ -235,6 +237,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
+  cssbundling-rails (~> 1.1)
   debase
   ffaker
   jbuilder (~> 2.7)
