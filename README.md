@@ -1,7 +1,3 @@
-### Using ES Build
-
-Please have a look at the package.json file to see how we are loading pagy.js dependencies. If you are not using js. then you don't need to worry about that!
-
 # What is this?
 
 This repository contains a basic Rails App to allow you to experiment with pagy.
@@ -10,7 +6,7 @@ This repository contains a basic Rails App to allow you to experiment with pagy.
 
 ### Dependencies:
 
-* Rails 6 and Ruby 3.0.1
+* Rails 7 and Ruby 3.0.1
 
 ### How it works:
 
@@ -23,20 +19,24 @@ This repository contains a basic Rails App to allow you to experiment with pagy.
 
 The different branches show pagy's functionality with different: (i) javascript libraries, and (ii) CSS frameworks. Choose checkout the branch that works for you:
 
-(A) turbo-rails
+
+(A) Master - Default Canonical Rails Example - Multiple Stylesheets
 ```sh
-git clone --branch turbo-rails git@github.com:benkoshy/pagy-rails.git
+git clone --branch master https://github.com/benkoshy/pagy-rails.git
 ```
 
-(B) turbolinks
+(B) turbo-rails - No longer supported
+
 ```sh
-git clone --branch turbolinks git@github.com:benkoshy/pagy-rails.git
+git clone --branch turbo-rails https://github.com/benkoshy/pagy-rails.git
 ```
 
-(C) Master - Default Canonical Rails Example - Multiple Stylesheets
+(C) turbolinks - No longer supported
 ```sh
-git clone --branch master git@github.com:benkoshy/pagy-rails.git
+git clone --branch turbolinks https://github.com/benkoshy/pagy-rails.git
 ```
+
+
 ### 2. Install
 
 ```sh
@@ -53,8 +53,6 @@ And then navigate to: http://localhost:3000/
 If you switch branches, don't forget to rerun commands to set everything up again:
 
 ```sh
-git checkout tailwind_etc
-
 bundle install
 
 yarn install
@@ -65,4 +63,8 @@ and stop and start the servers again:
 ```sh
 ./bin/dev
 ```
+
+### ES Build
+
+Please have a look at the package.json file to see how we are loading pagy javascript files. If you are not using js. then you don't need to worry about that!
 
