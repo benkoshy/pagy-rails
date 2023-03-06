@@ -60,7 +60,18 @@
   <% unless @calendar %>
     <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
     <div class="d-flex justify-content-center">
-      <%== pagy_bootstrap_nav(@pagy) %></div>
+      <p> Pagy Bootstrap Nav </p>
+    </div>
+    <div class="d-flex justify-content-center">
+      <%== pagy_bootstrap_nav(@pagy) %>        
+    </div>
+    <br>
+    <div class="d-flex justify-content-center">
+      <p> Pagy Bootstrap Info </p>
+    </div>
+    <div class="d-flex justify-content-center">
+      <%== pagy_info(@pagy) %>        
+    </div>
     <br>
     <div class="d-flex justify-content-center">
       <p> Pagy Nav JS</p>
@@ -84,8 +95,7 @@
       <p> Pagy Items Selector JS</p>
     </div>
     <div class="d-flex justify-content-center" data-controller="pagy-initializer">
-      <%== pagy_items_selector_js(@pagy) %>
-        
+      <%== pagy_items_selector_js(@pagy) %>        
     </div>
     <br>
     <br>

@@ -66,12 +66,13 @@
   <br>
 
 <% if @movies.any? %>
-  <table class="table table-auto">
-    <thead>
+<div class="relative overflow-x-auto">
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>
         <th> ID </th>
         <th>Created at</th>
-        <th>Name</th>
+        <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">Name</th>
         <th>Rating</th>
         <th></th>
         <th></th>
@@ -80,18 +81,20 @@
     </thead>
     <tbody>
       <% @movies.each do |movie| %>
-        <tr>
-          <td><%= movie.id %></td>
-          <td><%= movie.created_at.strftime("%F") %></td>
-          <td><%= movie.name %></td>
-          <td><%= movie.rating %></td>
-          <td><%= link_to 'Show', movie_path(movie), class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600" %> </td>
-          <td><%= link_to 'Edit', edit_movie_path(movie), class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600" %></td>
-          <td><%= link_to 'Destroy', movie, class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+          <td class="px-6 py-4"><%= movie.id %></td>
+          <td class="px-6 py-4"><%= movie.created_at.strftime("%F") %></td>
+          <td class="px-6 py-4"><%= movie.name %></td>
+          <td class="px-6 py-4"><%= movie.rating %></td>
+          <td class="px-6 py-4"><%= link_to 'Show', movie_path(movie), class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600" %> </td>
+          <td class="px-6 py-4"><%= link_to 'Edit', edit_movie_path(movie), class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600" %></td>
+          <td class="px-6 py-4"><%= link_to 'Destroy', movie, class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600", method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+
+  </div>
 <% end %>
 
   <br>
