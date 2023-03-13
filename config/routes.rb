@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   root "movies#index"
 
-  resources :bootstrap_movies, only: [:index]
+  resources :bootstrap_movies, only: [:index] do
+    get "independent_context", on: :collection
+  end
   resources :semantic_movies, only: [:index]
   resources :materialize_movies, only: [:index]
   resources :ui_kit_movies, only: [:index]

@@ -25,78 +25,77 @@
       <%== pagy_info(@pagy) %> <span class="px-1"> for </span> <%== @calendar[:month].label(format: '%B %Y') %>
     </div>
   <% end %>
-
-<% if @movies.any? %>
-  <table class="table table-responsive">
-    <thead>
-      <tr>
-        <th> ID </th>
-        <th>Created at</th>
-        <th>Name</th>
-        <th>Rating</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @movies.each do |movie| %>
-        <tr>
-          <td><%= movie.id %></td>
-          <td><%= movie.created_at.strftime("%F") %></td>
-          <td><%= movie.name %></td>
-          <td><%= movie.rating %></td>
-          <td><%= link_to 'Show', movie %></td>
-          <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-          <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-<% end %>
-
-  <br>
-  <% unless @calendar %>
-    <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
-    <div class="d-flex justify-content-center">
-      <p> Pagy Bootstrap Nav </p>
-    </div>
-    <div class="d-flex justify-content-center">
-      <%== pagy_bootstrap_nav(@pagy) %>        
-    </div>
+  <%= turbo_frame_tag "context-2", target: "_top" do  %>
+    <% if @movies.any? %>
+      <table class="table table-responsive">
+        <thead>
+          <tr>
+            <th> ID </th>
+            <th>Created at</th>
+            <th>Name</th>
+            <th>Rating</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @movies.each do |movie| %>
+            <tr>
+              <td><%= movie.id %></td>
+              <td><%= movie.created_at.strftime("%F") %></td>
+              <td><%= movie.name %></td>
+              <td><%= movie.rating %></td>
+              <td><%= link_to 'Show', movie %></td>
+              <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+              <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
     <br>
-    <div class="d-flex justify-content-center">
-      <p> Pagy Bootstrap Info </p>
-    </div>
-    <div class="d-flex justify-content-center">
-      <%== pagy_info(@pagy) %>        
-    </div>
-    <br>
-    <div class="d-flex justify-content-center">
-      <p> Pagy Nav JS</p>
-    </div>
-    <div class="d-flex justify-content-center">
-      <div data-controller="pagy-initializer">
-      <%== pagy_bootstrap_nav_js(@pagy) %>    
-      </div>    
-    </div>
-    <br>
-    <div class="d-flex justify-content-center">
-      <p> Pagy Nav Combo JS</p>
-    </div>
-    <div class="d-flex justify-content-center">
-      <div data-controller="pagy-initializer">
-          <%== pagy_bootstrap_combo_nav_js(@pagy) %>  
+    <% unless @calendar %>
+      <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
+      <div class="d-flex justify-content-center">
+        <p> Pagy Bootstrap Nav </p>
       </div>
-    </div>
-    <br>
-    <div class="d-flex justify-content-center">
-      <p> Pagy Items Selector JS</p>
-    </div>
-    <div class="d-flex justify-content-center" data-controller="pagy-initializer">
-      <%== pagy_items_selector_js(@pagy) %>        
-    </div>
+      <div class="d-flex justify-content-center">
+        <%== pagy_bootstrap_nav(@pagy) %>
+      </div>
+      <br>
+      <div class="d-flex justify-content-center">
+        <p> Pagy Bootstrap Info </p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <%== pagy_info(@pagy) %>
+      </div>
+      <br>
+      <div class="d-flex justify-content-center">
+        <p> Pagy Nav JS</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div data-controller="pagy-initializer">
+          <%== pagy_bootstrap_nav_js(@pagy) %>
+        </div>
+      </div>
+      <br>
+      <div class="d-flex justify-content-center">
+        <p> Pagy Nav Combo JS</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div data-controller="pagy-initializer">
+          <%== pagy_bootstrap_combo_nav_js(@pagy) %>
+        </div>
+      </div>
+      <br>
+      <div class="d-flex justify-content-center">
+        <p> Pagy Items Selector JS</p>
+      </div>
+      <div class="d-flex justify-content-center" data-controller="pagy-initializer">
+        <%== pagy_items_selector_js(@pagy) %>
+      </div>
+    <% end %>
     <br>
     <br>
     <%= link_to 'New Movie', new_movie_path, class: "btn btn-primary" %>
