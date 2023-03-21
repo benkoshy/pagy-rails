@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
                                                 active: params[:calendar])
 
     else
-      @pagy, @movies = pagy(movie_collection, items: 5)
+      @pagy, @movies = pagy(movie_collection, items: 2)
     end
   end
 
