@@ -1,0 +1,41 @@
+<% content_for :style do %>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<% end %>
+
+
+<div class="container">
+
+<br>
+<br>
+ 
+<h3> Search using Get Requests with turbo_frames to the same URL </h3>
+<ul>
+	<li>
+		A stimulus controller is used to submit the form as you type "submit_controller". We've used lodash (debounce and throttle) to limit the times our server gets hit.
+	</li>
+	<li>
+		This form is made using a "get" request. Note the 'turbo_method' attribute used below. Please note we've put the form OUTSIDE the turbo_frame, but the form is "driving" the turbo_frame which is "context-1". There is nothing more annoying than having a page refresh while you are typing on a form. This functionality can also be had via streams.
+	</li>
+	<li>
+		Because we are using ajax, whenever you click a pagination link, you should be paginated then THEN applicable search results. What does this mean? Imagine there is no ajax, and someone searches for movies titled "Danger". After obtaining the search results, they may want "safe" movies instead, and may forget to hit the "submit" button, and may decide to straight away paginate. The behaviour might be unexpected for users. 
+	</li>
+</ul>
+
+  <%= search_form_for @q, url: search_bootstrap_movies_path, data: {turbo_method: :get, controller: "submit", turbo_frame: "context-1"} do |f| %>
+    <%= f.label :name_cont, class: "form-label" %>    
+    <%= f.search_field :name_cont, placeholder: "Dan..", class: "form-control", "data-action": "submit#submit" %>
+    <p> <small class="text-muted"> Try 'Danger' </small></p>
+    <%= f.submit "Submit", class: "btn btn-primary mt-2", "data-submit-target": "submitButton" %>
+  <% end %>
+  <%= turbo_frame_tag "context-1", class: "mt-2" do %>
+    <%= render "movies_table", locals: {movies: @movies}%>
+  <% end %>
+
+
+
+
+  
+</div>

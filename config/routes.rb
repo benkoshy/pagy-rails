@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :bootstrap_movies, only: [:index] do
     get "independent_context", on: :collection
+    match "search", to: 'bootstrap_movies#search', via: [:get, :post], on: :collection
   end
   resources :semantic_movies, only: [:index]
   resources :materialize_movies, only: [:index]

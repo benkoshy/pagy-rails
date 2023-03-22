@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import PagyInitializerController from "./pagy_initializer_controller"
 application.register("pagy-initializer", PagyInitializerController)
+
+import SubmitController from "./submit_controller"
+application.register("submit", SubmitController)

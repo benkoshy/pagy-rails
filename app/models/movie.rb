@@ -3,4 +3,9 @@ class Movie < ApplicationRecord
 
   validates_presence_of :rating
   validates_presence_of :name
+
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["name"]
+  end
 end

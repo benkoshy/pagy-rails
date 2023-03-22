@@ -1,26 +1,32 @@
-<table class="table table-responsive">
-  <thead>
-    <tr>
-      <th> ID </th>
-      <th>Created at</th>
-      <th>Name</th>
-      <th>Rating</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% locals[:movies].each do |movie| %>
+<% if locals[:movies].any? %>
+  <table class="table table-responsive">
+    <thead>
       <tr>
-        <td><%= movie.id %></td>
-        <td><%= movie.created_at.strftime("%F") %></td>
-        <td><%= movie.name %></td>
-        <td><%= movie.rating %></td>        
+        <th> ID </th>
+        <th>Created at</th>
+        <th>Name</th>
+        <th>Rating</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% locals[:movies].each do |movie| %>
+        <tr>
+          <td><%= movie.id %></td>
+          <td><%= movie.created_at.strftime("%F") %></td>
+          <td><%= movie.name %></td>
+          <td><%= movie.rating %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 <div class="d-flex justify-content-center">
+  <% if @pagy.pages > 1 %>
     <%== pagy_bootstrap_nav(@pagy) %>
+  <% else %>
+    <%== pagy_info(@pagy) %>
+  <% end %>
 </div>
