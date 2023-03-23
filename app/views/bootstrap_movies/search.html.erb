@@ -24,7 +24,7 @@
 	</li>
 </ul>
 
-  <%= search_form_for @q, url: search_bootstrap_movies_path, data: {turbo_method: :get, controller: "submit", turbo_frame: "context-1"} do |f| %>
+  <%= search_form_for @q, id: "movie_search_turbo_frame_get_example", url: search_bootstrap_movies_path, data: {turbo_method: :get, controller: "submit", turbo_frame: "context-1"} do |f| %>
     <%= f.label :name_cont, class: "form-label" %>    
     <%= f.search_field :name_cont, placeholder: "Dan..", class: "form-control", "data-action": "submit#submit" %>
     <p> <small class="text-muted"> Try 'Danger' </small></p>
@@ -32,8 +32,38 @@
   <% end %>
   <%= turbo_frame_tag "context-1", class: "mt-2" do %>
     <%= render "movies_table", locals: {movies: @movies}%>
+        <div class="d-flex justify-content-center">
+      <% if @pagy.pages > 1 %>
+        <%== pagy_bootstrap_nav(@pagy) %>
+      <% else %>
+        <%== pagy_info(@pagy) %>
+      <% end %>
+    </div>
   <% end %>
 
+<br>
+<br>
+<br>
+
+<h3> Search using Get Requests with Streams </h3>
+  <%= form_with model: @q, id: "movie_search_turbo_stream_get_example", url: search_bootstrap_movies_path,  data: {turbo_method: :get, turbo_stream: true, controller: "submit"} do |f| %>
+    <%= f.label :name_cont, class: "form-label" %>    
+    <%= f.search_field :name_cont, placeholder: "Dan..", class: "form-control", "data-action": "submit#submit" %>
+    <p> <small class="text-muted"> Try 'Danger' </small></p>
+    <%= f.submit "Submit", class: "btn btn-primary mt-2", "data-submit-target": "submitButton" %>
+  <% end %>
+
+  <div id="stream-context">
+    <%= render "movies_table", locals: {movies: @movies}%>
+        <div class="d-flex justify-content-center">
+      <% if @pagy.pages > 1 %>
+        <%== pagy_bootstrap_nav(@pagy, link_extra: 'data-turbo-stream="true"') %>
+      <% else %>
+        <%== pagy_info(@pagy) %>
+      <% end %>
+    </div>  
+  </div>
+    
 
 
 

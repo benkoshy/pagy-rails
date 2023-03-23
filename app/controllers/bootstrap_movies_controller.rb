@@ -10,5 +10,10 @@ class BootstrapMoviesController < ApplicationController
 	def search
 		@q = Movie.ransack(params[:q])
 		@pagy, @movies = pagy(@q.result(distinct: true), items: 2)
+
+		respond_to do |format|
+			format.html
+			format.turbo_stream {render "search"}
+		end
 	end
 end

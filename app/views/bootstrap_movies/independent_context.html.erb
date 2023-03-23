@@ -5,31 +5,57 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <% end %>
 <div class="container">
-  <p> Try paginating under context-1. Now try paginating in context-2. Notice how the context is maintained as you paginate between different contexts? Let's try an entirely different url too (see context-3)</p>
 
+  
+  <p> Try paginating under context-1. Now try paginating in context-2. Notice how the context is maintained as you paginate between different contexts? Let's try an entirely different url too (see context-3)</p>
   <h3> Context 1</h3>
   <p> Same path as this page. &#47;bootstrap_movies&#47;independent_context </p>
   <%= turbo_frame_tag "context-1" do %>
     <% if @movies.any? %>
       <%= render "movies_table", locals: {movies: @movies}%>
     <% end %>
+    <div class="d-flex justify-content-center">
+      <% if @pagy.pages > 1 %>
+        <%== pagy_bootstrap_nav(@pagy) %>
+      <% else %>
+        <%== pagy_info(@pagy) %>
+      <% end %>
+    </div>
   <% end %>
 
-  <h3> Context 2 </h3>  
+
+
+  <h3> Context 2 </h3>
   <p> Same path as this page. i.e. &#47;bootstrap_movies&#47;independent_context but different context:
-	turbo_frame_tag "context-2" do ...
+    turbo_frame_tag "context-2" do ...
   </p>
   <%= turbo_frame_tag "context-2" do %>
     <% if @movies.any? %>
       <%= render "movies_table", locals: {movies: @movies}%>
     <% end %>
-  <% end %>   
+    <div class="d-flex justify-content-center">
+      <% if @pagy.pages > 1 %>
+        <%== pagy_bootstrap_nav(@pagy) %>
+      <% else %>
+        <%== pagy_info(@pagy) %>
+      <% end %>
+    </div>
+  <% end %>
 
-  <h3> Context 3 </h3>  
-  <p> An entirely different path: &#47;bootstrap_movies, i.e. turbo_frame_tag "context-3", src: bootstrap_movies_path  </p>    
+
+
+  <h3> Context 3 </h3>
+  <p> An entirely different path: &#47;bootstrap_movies, i.e. turbo_frame_tag "context-3", src: bootstrap_movies_path  </p>
   <%= turbo_frame_tag "context-3", src: bootstrap_movies_path do %>
     <% if @movies.any? %>
       <%= render "movies_table", locals: {movies: @movies}%>
     <% end %>
-  <% end %>   
+    <div class="d-flex justify-content-center">
+      <% if @pagy.pages > 1 %>
+        <%== pagy_bootstrap_nav(@pagy) %>
+      <% else %>
+        <%== pagy_info(@pagy) %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

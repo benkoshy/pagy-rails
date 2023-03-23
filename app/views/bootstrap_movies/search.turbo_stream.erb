@@ -1,0 +1,11 @@
+
+<%= turbo_stream.update "stream-context" do %>
+    <%= render "movies_table", locals: {movies: @movies}%>
+        <div class="d-flex justify-content-center">
+      <% if @pagy.pages > 1 %>
+        <%== pagy_bootstrap_nav(@pagy, link_extra: 'data-turbo-stream="true"') %>
+      <% else %>
+        <%== pagy_info(@pagy) %>
+      <% end %>
+    </div>      
+<% end  %>
