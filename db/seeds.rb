@@ -7,3 +7,13 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+
+
+# create 1000 products
+id = 0
+10.times do
+  products = []
+  1.upto(1000) { products << { name: "Product #{id += 1}" } }
+  Product.insert_all(products)
+end
